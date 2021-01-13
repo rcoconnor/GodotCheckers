@@ -1,10 +1,803 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Board.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/BoardSquare.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/wood.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "Light",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "Dark",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16.0161, 16.0825 )
 
 [node name="Board" type="Node2D"]
+position = Vector2( -40.9476, 17.6173 )
 script = ExtResource( 1 )
-board_square = ExtResource( 2 )
 
-[node name="SpawnLocation" type="Node2D" parent="."]
+[node name="BoardSquare" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BoardSquare"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoardSquare"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@2"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@2"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@3"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@3"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@4"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@4"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@5"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@5"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@6"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@6"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@7"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@7"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, 94.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@8"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@8"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@9" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@9"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@9"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@10" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@10"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@10"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@11" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@11"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@11"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@12"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@12"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@13"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@13"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@14"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@14"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@15"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@15"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, 62.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@16"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@16"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@17" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@17"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@17"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@18" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@18"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@18"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@19" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@19"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@19"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@20"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@20"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@21"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@21"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@22"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@22"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@23"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@23"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, 30.7926 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@24"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@24"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@25" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@25"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@25"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@26" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@26"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@26"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@27" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@27"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@27"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@28"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@28"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@29"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@29"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@30"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@30"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@31" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@31"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@31"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@32" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, -1.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@32"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@32"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@33" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@33"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@33"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@34" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@34"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@34"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@35" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@35"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@35"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@36" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@36"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@36"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@37" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@37"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@37"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@38" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@38"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@38"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@39" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@39"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@39"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@40" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, -33.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@40"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@40"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@41" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@41"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@41"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@42" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@42"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@42"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@43" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@43"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@43"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@44" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@44"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@44"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@45" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@45"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@45"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@46" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@46"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@46"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@47" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@47"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@47"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@48" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, -65.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@48"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@48"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@49" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@49"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@49"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@50" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@50"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@50"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@51" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@51"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@51"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@52" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@52"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@52"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@53" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@53"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@53"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@54" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@54"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@54"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@55" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@55"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@55"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@56" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, -97.2074 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@56"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@56"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@57" parent="." instance=ExtResource( 2 )]
+position = Vector2( -70.4467, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@57"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@57"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@58" parent="." instance=ExtResource( 2 )]
+position = Vector2( -38.4467, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@58"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@58"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@59" parent="." instance=ExtResource( 2 )]
+position = Vector2( -6.4467, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@59"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@59"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@60" parent="." instance=ExtResource( 2 )]
+position = Vector2( 25.5533, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@60"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@60"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@61" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57.5533, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@61"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@61"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@62" parent="." instance=ExtResource( 2 )]
+position = Vector2( 89.5533, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@62"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@62"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@63" parent="." instance=ExtResource( 2 )]
+position = Vector2( 121.553, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@63"]
+frames = SubResource( 3 )
+animation = "Light"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@63"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="@BoardSquare@64" parent="." instance=ExtResource( 2 )]
+position = Vector2( 153.553, -129.207 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="@BoardSquare@64"]
+frames = SubResource( 3 )
+animation = "Dark"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@BoardSquare@64"]
+visible = false
+shape = SubResource( 4 )

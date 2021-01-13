@@ -8,7 +8,7 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 32, 32, 32 )
@@ -20,7 +20,7 @@ animations = [ {
 "name": "Light",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "Dark",
 "speed": 5.0

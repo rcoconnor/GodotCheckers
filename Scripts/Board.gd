@@ -1,35 +1,41 @@
 extends Node2D
 
 
-export(PackedScene) var board_square
+var  dark_pieces = 0x000000000055AA55
+var light_pieces = 0xAA55AA0000000000
+
+export(PackedScene) var piece
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	create_board_on_screen()
+	print("dark pieces: %016X" % dark_pieces)
+	place_pieces()	
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 
-func create_board_on_screen():
-	var SQUARE_SIZE = 32 
-	var cur_x = $SpawnLocation.position.x
-	var cur_y = $SpawnLocation.position.y
+# Places all the pieces at the start of the game
+func place_pieces():
+	var pieces_to_place = dark_pieces
+	for each_child in get_children(): 
+		# mask the value with 00001 in order to isolate LSB
+		var lsb = pieces_to_place & 1
+		if lsb == 1: # it exists, we should place it 
+			var piece_instance = piece.instance()
+			piece_instance.set_name("Piece")	
+			add_child(piece_instance)
+			piece_instance.position = each_child.position
+		# Afterwards, shift by one bit in order to read the next value
+		pieces_to_place = pieces_to_place >> 1
 
-	var counter = 0
-	for i in range(8):
-		for j in range(8): 
-			var cur_pos = Vector2(cur_x, cur_y)
-			var new_square = board_square.instance()
-			add_child(new_square)
-			new_square.position = cur_pos
-			new_square.set_index(counter)	
-			new_square.set_row(i)
-			new_square.set_col(j)
-			new_square.change_color()
-			cur_x += SQUARE_SIZE
-			counter+= 1
-		cur_y -= SQUARE_SIZE
-		cur_x = $SpawnLocation.position.x
+
+
+
+
 
