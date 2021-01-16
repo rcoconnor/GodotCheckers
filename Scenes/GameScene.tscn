@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Piece.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="GameBoardManager" type="Node2D"]
+script = ExtResource( 3 )
+piece = ExtResource( 2 )
 
 [node name="Board" parent="." instance=ExtResource( 1 )]
-piece = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -3.37695, 1.12567 )

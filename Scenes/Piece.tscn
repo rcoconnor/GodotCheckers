@@ -29,11 +29,13 @@ animations = [ {
 } ]
 
 [node name="Piece" type="RigidBody2D"]
+z_index = 1
 mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+z_index = 1
 frames = SubResource( 4 )
 animation = "Dark Pieces"
