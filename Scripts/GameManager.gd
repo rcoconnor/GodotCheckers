@@ -38,12 +38,12 @@ func _process(_delta):
 
 func _input(event):  
 	if event.is_action_pressed("ui_select"): 
-		refresh_board()
+		clear_board()
 		CUR_INDEX += 1
 		place_pieces_from_board(lookup.mask_rank(CUR_INDEX-1))
 
 
-func refresh_board(): 
+func clear_board(): 
 	for each_piece in pieces_array: 
 		each_piece.queue_free()
 	pieces_array = Array()

@@ -1,4 +1,4 @@
-extends Object
+extends Reference 
 
 # Bitboard Class
 # 
@@ -16,24 +16,6 @@ func _ready():
 func _process(_delta): 
 	pass 
 
-
-func right_shift():
-	var new_string = "" 
-
-	var last = b_board_state[63]
-	for i in range(64): 
-		new_string += last
-		last = b_board_state[i]
-	return new_string	
-
-
-func left_shift(): 
-	var new_string = ""	
-	var first = b_board_state[0]	
-	for i in range(63): 
-		new_string += b_board_state[i+1]
-	new_string += first	
-	return new_string
 
 
 
@@ -162,6 +144,45 @@ func set_board_to_binary(bin_string):
 func get_lsb(): 
 	return b_board_state[63]
 
+
+# shifts a binary string to the right by one bit 
+static func shift_board_right(bin_board_string): 
+	var new_string = ""
+	var last  = bin_board_string[63]
+	for i in range(64): 
+		new_string += last 
+		last = bin_board_string[i]
+	return new_string
+
+
+# shifts a binary string to the left by one bit and returns the result
+static func shift_board_left(bin_board_string): 
+	var new_string = ""	
+	var first = bin_board_string[0]	
+	for i in range(63): 
+		new_string += bin_board_string[i+1]
+	new_string += first	
+	return new_string
+
+
+ # Deprecated, should not use this 
+func right_shift():
+	var new_string = "" 
+
+	var last = b_board_state[63]
+	for i in range(64): 
+		new_string += last
+		last = b_board_state[i]
+	return new_string	
+
+ # Deprecated, should not use this 
+func left_shift(): 
+	var new_string = ""	
+	var first = b_board_state[0]	
+	for i in range(63): 
+		new_string += b_board_state[i+1]
+	new_string += first	
+	return new_string
 
 
 

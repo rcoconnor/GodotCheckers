@@ -1,4 +1,4 @@
-extends Object
+extends Reference 
 
 
 func _ready(): 
@@ -44,7 +44,10 @@ static func piece_table(position):
 		idx = position_string_to_index(position)
 	else: 
 		idx = position
-	num_to_return = num_to_return << idx 
+	var string_to_return = ""	
+	for i in range(64): 
+		if (i == idx): string_to_return += "1"
+		else: string_to_return += "0"
 	return num_to_return
 
 
@@ -58,7 +61,8 @@ static func piece_table_test():
 # returns a bitboard that when anded with another bitboard masks 
 static func mask_rank(rank): 
 	var hex_num_to_return = "00000000000000"		
-	var string_to_return = hex_num_to_return.insert(rank * 2, "FF")	
+	var index = 14 - (rank * 2)	
+	var string_to_return = hex_num_to_return.insert(index, "FF")	
 	return string_to_return		
 
 
@@ -66,7 +70,8 @@ static func mask_rank(rank):
 # with another board it clears the board except for that rank 
 static func clear_rank(rank):
 	var start_string = "FFFFFFFFFFFFFF"
-	var string_to_return = start_string.insert(rank * 2, "00")
+	var index = 14 - (rank * 2)
+	var string_to_return = start_string.insert(index, "00")
 	return string_to_return
 
 
